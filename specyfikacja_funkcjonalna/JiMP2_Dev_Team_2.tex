@@ -1,0 +1,94 @@
+\documentclass[11pt]{article}
+\usepackage[polish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{enumitem}
+
+\begin{document}
+
+\begin{huge}
+\begin{center}
+\textbf{Specyfikacja funkcjonalna}\\
+\end{center}
+\end{huge}
+
+ \renewcommand{\labelenumii}{\Roman{enumii}}
+ \begin{enumerate}
+ 
+ 
+ 
+ 
+ 
+\item Ogólna funkcjonalność
+
+\begin{enumerate}[label=\arabic{enumi}.\arabic*.]
+ \item  Korzystanie z programu\\
+ \\Program wykonany jest w formie aplikacji okienkowej. Znajduje się on w katalogu $automat komorkowy$ pod nazwą $Wireworld$. Występuje w formie pliku wykonywalnego o rozszerzeniu $jar.$ W tym samym folderze znajduje się plik $dane.txt$. Zawiera on dane na temat stanów wybranych komórek. Poniżej znajduje się przykładowy plik:
+ Jeśli użytkownik chce zmienić dane lub wprowadzić nowe to musi edytować ten plik. \\
+\item  Uruchamianie programu\\
+\\Uruchomienie programu następuje przez klikniecie na plik „Wireworld”. Po tym program spyta ile generacji planszy użytkownik chce wykonać, a następnie wyświetli je po kolei.\\
+\item Możliwosci programu\\
+\\Program poza pokazaniem poszczególnych generacji planszy zapisuje również te generacje do folderu „generacje”. Przy każdym użyciu programu folder ten jest czyszczony i nowe generacje są zapisywane.\\
+\end{enumerate}
+
+
+
+\item Scenariusz działania programu\\
+
+
+\begin{enumerate}[label=\arabic{enumi}.\arabic*.]
+\item Scenariusz ogólny
+\begin{enumerate}[label*=\arabic*.]
+\item Program wczytuje dane z pliku 
+\item Program pyta użytkownika o liczbę generacji
+\item Program analizuje stany komórek i transformuje je.
+\item Program pokazuje wynik pojedynczej generacji
+\item Program zapisuje pojedynczą generację do pliku
+\item Program ponownie wykonuje operacje z punktów 3-5, aż nie wykona ilości generacji równej tej 		podanej w punkcie 2.
+\item Program pyta czy użytkownik chce jeszcze raz wykonać proces (powrót do punktu 1) dla tych 		samych danych czy zakończyć.\\
+\end{enumerate}
+
+
+
+\item Scenariusz szczegółowy
+\begin{enumerate}[label*=\arabic*.]
+\item Program wczytuje dane z pliku. 
+\begin{itemize}
+\item Program sprawdza czy sposób podania danych jest poprawny, jeśli nie pokaże komunikat „błąd danych” i zakończy prace.
+\end{itemize}
+\item Program pyta użytkownika o liczbę generacji. 
+\begin{itemize}
+\item Sprawdzane jest czy użytkownik podał wartość numeryczną większą od 0. Jeśli tak to przechodzi dalej, jeśli nie to wyświetla informację o podaniu złej wartości i pyta ponownie o liczbę generacji.
+\end{itemize}
+\item Program usuwa wszystkie pliki z katalogu „generacje”
+\begin{itemize}
+\item Jeśli katalog jest pusty to tylko idzie dalej, nic nie usuwa.
+\end{itemize}
+\item Program analizuje stany komórek i transformuje je. 
+\begin{itemize}
+\item Operacja analizy przeprowadzana jest przy użyciu 2 tablic dwuwymiarowych. Jedna z nich służy do przechowywania nowych stanów, a druga do badania sąsiedztwa i ustalania tych nowych stanów.
+\end{itemize}
+\item Program pokazuje wynik pojedynczej generacji.
+\item Program zapisuje pojedynczą generację do pliku w przypadku błędu tworzenia pliku pojawi się komunikat i program zostanie zamknięty.
+\item Program ponownie wykonuje operacje z punktów 3-5, aż nie wykona ilości generacji równej tej podanej w punkcie 2.
+\item Program pyta czy użytkownik chce jeszcze raz wykonać proces (powrót do punktu 1) dla tych samych danych czy zakończyć.
+\end{enumerate}
+
+
+
+
+
+
+
+\end{enumerate}
+
+
+
+
+
+\end{enumerate}
+
+
+
+\end{document}
