@@ -9,32 +9,79 @@
 
 \begin{huge}
 \begin{center}
-\textbf{Specyfikacja funkcjonalna}\\
+\textbf{Specyfikacja funkcjonalna}
 \end{center}
 \end{huge}
 
  \renewcommand{\labelenumii}{\Roman{enumii}}
  \begin{enumerate}
  
+ \item Opis ogólny
  
+ \begin{enumerate}[label=\arabic{enumi}.\arabic*.]
+ 
+ \item Nazwa programu\\
+ Program nazywa się $Wireworld$.
+ \item Poruszany problem\\
+ Implementować będziemy WireWorld Briana Silvermana.\\
+ Komórka może znajdować się w jednym z czterech stanów:\\
+ Pusta,\\
+ Głowa elektronu,\\
+ Ogon elektrony,\\
+ Przewodnik.\\
+ Zwykle przymuje się następujące kolory stanów: biały, czerwony, żółty, czarny.\\
+ Kolejne generacje budowane są z wykorzystaniem zestawu pięciu zasad:\\
+ Komórka pozostaje Pusta, jeśli była Pusta.\\
+ Komórka staje się Ogonem elektronu, jeśli była Głową elektronu.\\
+ Komórka staje się Przewodnikiem, jeśli była Ogonem elektronu.\\
+ Komórka staje się Głową elektronu tylko wtedy, gdy dokładnie 1 lub 2 sąsiadujące komórki są Głowami Elektronu.\\
+ Komórka staje się Przewodnikiem w każdym innym wypadku.\\
+ W WireWorld stosuje się sąsiedztwo Moore'a.\\
+ 
+ \item Użytkownik docelowy\\
+ Użytkownikiem docelowym naszego programu jest prowadzący zajęć laboratoryjnych.\\
+
+ \end{enumerate}
  
  
  
 \item Ogólna funkcjonalność
 
 \begin{enumerate}[label=\arabic{enumi}.\arabic*.]
- \item  Korzystanie z programu\\
- \\Program wykonany jest w formie aplikacji okienkowej. Znajduje się on w katalogu $automat komorkowy$ pod nazwą $Wireworld$. Występuje w formie pliku wykonywalnego o rozszerzeniu $jar.$ W tym samym folderze znajduje się plik $dane.txt$. Zawiera on dane na temat stanów wybranych komórek. Poniżej znajduje się przykładowy plik:
- Jeśli użytkownik chce zmienić dane lub wprowadzić nowe to musi edytować ten plik. \\
-\item  Uruchamianie programu\\
+ \item  Korzystanie z programu
+ \\Program wykonany jest w formie aplikacji okienkowej. Znajduje się on w katalogu $automat komorkowy$ pod nazwą $Wireworld$. Występuje w formie pliku wykonywalnego o rozszerzeniu $jar.$ W tym samym folderze znajduje się plik $dane.txt$. Zawiera on dane na temat stanów wybranych komórek.\\
+\item  Uruchamianie programu
 \\Uruchomienie programu następuje przez klikniecie na plik „Wireworld”. Po tym program spyta ile generacji planszy użytkownik chce wykonać, a następnie wyświetli je po kolei.\\
-\item Możliwosci programu\\
+\item Możliwosci programu
 \\Program poza pokazaniem poszczególnych generacji planszy zapisuje również te generacje do folderu „generacje”. Przy każdym użyciu programu folder ten jest czyszczony i nowe generacje są zapisywane.\\
 \end{enumerate}
+ 
+  \item Format danych i struktura plików
+  
+  \begin{enumerate}[label=\arabic{enumi}.\arabic*.]
+  
+ \item Słownik\\
+ *.png - nazwa pliku w postaci \textbf{gen-x.png}, gdzie $x$ jest numerem generacji,\\
+ 
+ dane - umieszczone w jednym wierszu w pliku informacje o polach tabeli tworzącej nasz projekt, np. Diode: 0, 3, Normal w przypadku diod albo ElectronHead: 1, 3 w przypadku głów elektronu albo ElectronTali: 1, 9 w przypadku ogonów elektronu,\\
+ 
+ GUI - graphical user interface, czyli to, co aplikacja pokazuje użytkownikowi,\\
+ 
+ Macierz - tablica dwuwymiarowa o wymiarach X na Y, gdzie X to liczba wierszy, a Y to liczba kolumn,\\
+ 
+ \item Struktura katalogów\\
+ Plik \textbf{.jar} będzie przechowywany w katalogu \textbf{automat komórkowy} pod nazwą \textbf{Wireworld}. Dane znajdują się w tym samym katalogu. Dane wyjściowe przechowywane są w podkatalogu \textbf{generacje}.
+ \item Przechowywanie danych w programie\\
+ Nasz program znajduje się w repozytorium pod adresem $https://github.com/Achreko/WireWorld-Java$. Jeżeli zaś chodzi o struktury danych w programie, to planszę, na której będziemy umieszczać poszczególne elementy zapiszemy w postaci \textit{macierzy}. Będziemy też mieli drugą \textit{macierz}, w której znajdować się będzie przyszła generacja i to właśnie tam będziemy dokonywać zmian.\\
+ \item Dane wejściowe\\
+ Dane wejściowe znajdują się w pliku $dane.txt$. Zawiera on \textit{dane}.
+ Jeśli użytkownik chce zmienić \textit{dane} lub wprowadzić nowe to musi edytować ten plik.\\
+ \item Dane wyjściowe\\
+ Dane wyjściowe będą w postaci plików \textit{*.png}, których ilość zależeć będzie od żądanej przez użytkownika ilości generacji.
+ \end{enumerate}
+ 
 
-
-
-\item Scenariusz działania programu\\
+\item Scenariusz działania programu
 
 
 \begin{enumerate}[label=\arabic{enumi}.\arabic*.]
@@ -53,9 +100,9 @@
 
 \item Scenariusz szczegółowy
 \begin{enumerate}[label*=\arabic*.]
-\item Program wczytuje dane z pliku. 
+\item Program wczytuje \textit{dane} z pliku. 
 \begin{itemize}
-\item Program sprawdza czy sposób podania danych jest poprawny, jeśli nie pokaże komunikat „błąd danych” i zakończy prace.
+\item Program sprawdza czy sposób podania \textit{danych} jest poprawny, jeśli nie pokaże komunikat „błąd danych” i zakończy prace.
 \end{itemize}
 \item Program pyta użytkownika o liczbę generacji. 
 \begin{itemize}
@@ -84,7 +131,11 @@
 \end{enumerate}
 
 
-
+ \item Testowanie\\
+ \begin{enumerate}
+ \item Ogólny przebieg testowania\\
+ Do testów kodu użyjemy JUnit, a \textit{GUI} będziemy testować na bieżąco tworząc aplikację.
+ \end{enumerate}
 
 
 \end{enumerate}
