@@ -9,6 +9,7 @@ public class Frame extends JFrame{
         setLocationRelativeTo(null); //sprawi ze okno okienko pojawi sie na srodku
         setVisible(true);//trzeba ustawic na true, inaczej nie bedzie widac okienka
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        JTextField textfield=new JTextField();
     }
 
     public static void myMainFrame(){

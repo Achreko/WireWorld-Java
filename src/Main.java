@@ -1,8 +1,10 @@
+import javax.swing.*;
+
 public class Main {
 
 
     public static void main (String[] args) {
-        Frame.myMainFrame();
-        System.out.println("chcesz zrobic "+DialogBox.g+" genearcjii");
+        String title= JOptionPane.showInputDialog(null,"enter your title");
+        System.out.println(title);
     }
 }
