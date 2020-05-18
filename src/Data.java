@@ -1,3 +1,4 @@
+//lista elementow do generacji
 public class Data {
     public Element[] data =new Element[10];
     public int number_of_elements=0;
