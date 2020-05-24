@@ -1,3 +1,5 @@
+package Data;
+
 //przechowywanie kazdego elemementu(dioda,elektron itp) ktory poda uzytkownik w pliku
 public class Element {
     private String name;

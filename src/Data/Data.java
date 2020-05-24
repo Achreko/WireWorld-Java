@@ -1,8 +1,13 @@
+package Data;
+
 //lista elementow do generacji
 public class Data {
     public Element[] data =new Element[10];
-    public int number_of_elements=0;
+    private int number_of_elements=0;
 
+    public int getNumber_of_elements() {
+        return number_of_elements;
+    }
 
     private void resize(){
         Element[] n=new Element[2*number_of_elements];
