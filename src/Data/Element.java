@@ -2,10 +2,10 @@ package Data;
 
 //przechowywanie kazdego elemementu(dioda,elektron itp) ktory poda uzytkownik w pliku
 public class Element {
-    private String name;
-    private String option;
-    private int x;
-    private int y;
+    public String name;
+    public String option;
+    public int x;
+    public int y;
 
     public Element(String name,int x,int y){
         this.x=x;

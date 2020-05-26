@@ -1,4 +1,7 @@
 import Data.*;
+import Exceptions.BadArgumentException;
+import Exceptions.BadDiodeModifierException;
+import Exceptions.BadElementException;
 import Loader.*;
 
 import java.io.IOException;
@@ -6,26 +9,33 @@ import java.io.IOException;
 public class Test1 {
     public static void main(String []args) {
 
-        /*
-    d.addElement(new Element("test",2,3));
-        d.addElement(new Element("test2",90,3));
-        d.addElement(new Element("test2","option",0,3));
-   for(int i=0;i<d.number_of_elements;i++){
-       System.out.println(d.data[i]);
-
-   }
-   */
         String k = "/Users/kasia/desktop/plik.txt";
         try {
             Data data = new Data();
             data=Load.readData(k);
+            int[][] w =new int[50][50];
+            w= Create_Board.check_and_load(data);
             for(int i=0;i<data.getNumber_of_elements();i++) {
                 System.out.println(data.data[i]);
             }
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+            System.out.println(data.getNumber_of_elements());
 
+            for (int i = 0; i < 20; i++) {
+                for (int j=0;j<20;j++){
+                    System.out.print(w[i][j]);
+                }
+                System.out.print('\n');
+            }
+        } catch (BadArgumentException e) {
+            System.out.println(e.getMessage());
+
+        }catch (IOException i) {
+            System.out.println(i.getMessage());
+        }catch(BadDiodeModifierException b){
+            System.out.println(b.getMessage());
+        }catch (BadElementException g){
+            System.out.println(g.getMessage());
+        }
 
 
     }

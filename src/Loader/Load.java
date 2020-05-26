@@ -16,7 +16,7 @@ public class Load {
             try {
                 if (k.length == 4) {
 
-                    Element e = new Element(k[0], k[1], Integer.parseInt(k[2]), Integer.parseInt(k[3]));
+                    Element e = new Element(k[0], k[3], Integer.parseInt(k[1]), Integer.parseInt(k[2]));
                     d.addElement(e);
 
                 } else if (k.length == 3) {
@@ -24,21 +24,12 @@ public class Load {
                     d.addElement(e);
                 }
             } catch (NumberFormatException j) {
-
+            System.out.println("eee");
             }
         }
         return d;
     }
 
-    private boolean Diode_N(int x, int y){
-        if(x>=0&&x<=46&&y>=1&&y<=48) return true;
-        else return false;
-    }
-
-    private boolean Diode_R(int x,int y){
-        if(x>=3&&x<=49&&y>=1&&y<=48) return true;
-        else return false;
-    }
 
 }
 
