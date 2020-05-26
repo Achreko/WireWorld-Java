@@ -24,7 +24,7 @@ public class Main_GUI extends JFrame {
     protected String file=null;     // sciezka do pliku zapisana w formacie string
 
 
-    Main_GUI(String name){
+     public Main_GUI(String name){
         super(name);
 
         // panel
@@ -123,19 +123,19 @@ public class Main_GUI extends JFrame {
 
     }
 
-    private String getFilePath(){
+    protected String getFilePath(){
             return fc.getSelectedFile().getAbsolutePath();
         }
 
      public int getNumber(){ return this.number;}
      public String getPath(){return file;}
 
-
+/*
     public static void main(String[] args) {
         Main_GUI m = new Main_GUI("ooo");
         m.setSize(400, 400);
         m.setVisible(true);
 
 
-    }
+    }*/
 }
