@@ -131,12 +131,12 @@ public class Main_GUI extends JFrame {
      public int getNumber(){ return this.number;}
      public String getPath(){return file;}
 
-
+/*
     public static void main(String[] args) {
         Main_GUI m = new Main_GUI("ooo");
         m.setSize(400, 400);
         m.setVisible(true);
 
 
-    }
+    }*/
 }
