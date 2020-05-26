@@ -85,6 +85,8 @@ public class Main_GUI extends JFrame {
                 System.exit(0);
             } else if (e.getSource().equals(accept)) {
                 number = (Integer.parseInt(text.getText()));
+                if(number < 1)
+                    System.exit(1);
                 accept.setVisible(false);
                 text.setVisible(false);
                 label.setVisible(false);
@@ -129,12 +131,12 @@ public class Main_GUI extends JFrame {
      public int getNumber(){ return this.number;}
      public String getPath(){return file;}
 
-/*
+
     public static void main(String[] args) {
         Main_GUI m = new Main_GUI("ooo");
         m.setSize(400, 400);
         m.setVisible(true);
 
 
-    }*/
+    }
 }
