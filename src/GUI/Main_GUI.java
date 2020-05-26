@@ -2,7 +2,6 @@ package GUI;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -66,7 +65,7 @@ public class Main_GUI extends JFrame {
         choose.addActionListener(new Listener());
 
 
-        // dodawanie lementow do panelu
+        // dodawanie elementow do panelu
 
         panel.add(text);
         panel.add(label);
@@ -109,9 +108,9 @@ public class Main_GUI extends JFrame {
 
         @Override
         public void keyTyped (KeyEvent e ) {
-            if (!Character.isDigit(e.getKeyChar())||e.getKeyChar()=='0')
+            if (!Character.isDigit(e.getKeyChar()))
                 e.consume();
-            if (Character.isDigit(e.getKeyChar())&&e.getKeyChar()!='0')
+            if (Character.isDigit(e.getKeyChar()))
                 accept.setEnabled(true);
         }
 
