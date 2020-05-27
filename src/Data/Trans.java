@@ -30,20 +30,31 @@ public class Trans {
     }
 
     public static int[][] setTransformation(int[][] array){
+
+        int[][] array2=new int[Objects.Getter.get_rows()][Objects.Getter.get_columns()];
+        copy(array,array2);
         for(int i = 0; i < 50; i++)
             for( int j =0; j < 50; j++) {
-                if(canTransform(array[i][j])){
-                if(array[i][j] == 2)
+                if(canTransform(array2[i][j])){
+                if(array2[i][j] == 2)
                     array[i][j] = 3;
-                else if(array[i][j] == 3)
+                else if(array2[i][j] == 3)
                     array[i][j] = 1;
-                else if (array[i][j] == 1 ) {
-                    if (happyLittleFriend(array,i, j))
+                else if (array2[i][j] == 1 ) {
+                    if (happyLittleFriend(array2,i, j))
                         array[i][j] = 2;
                 }
             }
         }
         return array;
+    }
+
+    private static void copy(int[][] t,int[][]t2){
+        for(int i=0;i<Objects.Getter.get_rows();i++){
+            for(int j=0;i<Objects.Getter.get_columns();j++){
+                t2[i][j]=t[i][j];
+            }
+        }
     }
 
 

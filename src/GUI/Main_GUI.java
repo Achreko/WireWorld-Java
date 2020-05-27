@@ -58,13 +58,6 @@ public class Main_GUI extends JFrame {
         label2.setBounds(50, 50, 150, 30);
         label2.setVisible(false);
 
-     // dodanie action listenerow
-        text.addKeyListener(new Listener());
-        close.addActionListener(new Listener());
-        accept.addActionListener(new Listener());
-        choose.addActionListener(new Listener());
-
-
         // dodawanie elementow do panelu
 
         panel.add(text);
@@ -76,67 +69,5 @@ public class Main_GUI extends JFrame {
 
     }
 
-    private class Listener implements ActionListener, KeyListener {
 
-        @Override
-        public void actionPerformed(ActionEvent e) {
-
-            if (e.getSource().equals(close)) {
-                System.exit(0);
-            } else if (e.getSource().equals(accept)) {
-                number = (Integer.parseInt(text.getText()));
-                if(number < 1)
-                    System.exit(1);
-                accept.setVisible(false);
-                text.setVisible(false);
-                label.setVisible(false);
-                choose.setVisible(true);
-                label2.setVisible(true);
-            } else if (e.getSource().equals(choose)) {
-                JButton b = new JButton();
-                fc = new JFileChooser();
-
-                fc.setCurrentDirectory(new File("."));
-                FileNameExtensionFilter filter = new FileNameExtensionFilter("TEXT FILES", "txt", "text");
-                fc.setFileFilter(filter);
-
-                if (fc.showOpenDialog(b) == JFileChooser.APPROVE_OPTION) {
-                    file = getFilePath();
-                    choose.setVisible(false);
-                    label2.setVisible(false);
-                }
-            }
-        }
-
-        @Override
-        public void keyTyped (KeyEvent e ) {
-            if (!Character.isDigit(e.getKeyChar()))
-                e.consume();
-            if (Character.isDigit(e.getKeyChar()))
-                accept.setEnabled(true);
-        }
-
-        @Override
-        public void keyPressed(KeyEvent e) {}
-
-        @Override
-        public void keyReleased(KeyEvent e) {}
-
-    }
-
-    protected String getFilePath(){
-            return fc.getSelectedFile().getAbsolutePath();
-        }
-
-     public int getNumber(){ return this.number;}
-     public String getPath(){return file;}
-
-/*
-    public static void main(String[] args) {
-        Main_GUI m = new Main_GUI("ooo");
-        m.setSize(400, 400);
-        m.setVisible(true);
-
-
-    }*/
 }
