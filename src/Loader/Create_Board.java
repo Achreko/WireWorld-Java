@@ -4,14 +4,14 @@ import Exceptions.*;
 import Objects.*;
 
 
-public class Create_Board {
+public class Create_Board  {
 
 
     public static int[][] check_and_load(Data  d){
 
-        int[][] k=new int[50][50];
-        for(int h=0;h<50;h++){
-           for(int g=0;g<50;g++){
+        int[][] k=new int[Getter.get_rows()][Getter.get_columns()];
+        for(int h=0;h<Getter.get_rows();h++){
+           for(int g=0;g<Getter.get_columns();g++){
                k[h][g]=0;
            }
         }

@@ -3,6 +3,7 @@ import Exceptions.BadArgumentException;
 import Exceptions.BadDiodeModifierException;
 import Exceptions.BadElementException;
 import Loader.*;
+import Objects.Getter;
 
 import java.io.IOException;
 
@@ -20,8 +21,8 @@ public class Test1 {
             }
             System.out.println(data.getNumber_of_elements());
 
-            for (int i = 0; i < 50; i++) {
-                for (int j=0;j<50;j++){
+            for (int i = 0; i < Getter.get_rows(); i++) {
+                for (int j=0;j<Getter.get_columns();j++){
                     System.out.print(w[i][j]);
                 }
                 System.out.print('\n');
