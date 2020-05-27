@@ -20,8 +20,8 @@ public class Test1 {
             }
             System.out.println(data.getNumber_of_elements());
 
-            for (int i = 0; i < 20; i++) {
-                for (int j=0;j<20;j++){
+            for (int i = 0; i < 50; i++) {
+                for (int j=0;j<50;j++){
                     System.out.print(w[i][j]);
                 }
                 System.out.print('\n');

@@ -1,8 +1,8 @@
 package Objects;
 
-public class Diode_R {
+public class Diode_R extends Body {
 
-    public static void make_diode_r(int[][] k,int x,int y){
+    public static void make(int[][] k,int x,int y){
         if(k[y][x]==0)
             k[y][x]=1;
         if(k[y-1][x-1]==0)
@@ -19,8 +19,10 @@ public class Diode_R {
             k[y][x-3]=1;
     }
 
-    public static boolean check_diode_r(int x,int y){
-        if(x>=3&&x<=49&&y>=1&&y<=48) return true;
+    public static boolean check(int x,int y){
+        if(x>=3&&x<=columns-1&&y>=1&&y<=rows-2) return true;
         else return false;
     }
+
+
 }
