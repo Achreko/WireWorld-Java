@@ -10,7 +10,7 @@ for (int j=0;j<20;j++){
         }
 
         m[8][6]=3;
-        Or_Gate.make(m,6,8);
+
 
 
         for (int i = 0; i < 20; i++) {

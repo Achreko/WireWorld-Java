@@ -18,37 +18,23 @@ public class Create_Board {
 
         for(int i=0;i<d.getNumber_of_elements();i++){
             if(d.data[i].name.equalsIgnoreCase("electronhead")){
-                        if(!ElectronHead.check(d.data[i].x,d.data[i].y ))
-                        throw new BadArgumentException("zle wsp");
-                        Objects.ElectronHead.make(k,d.data[i].x,d.data[i].y);
+                ElectronHead.perform(k,d.data[i].x,d.data[i].y);
             }else if(d.data[i].name.equalsIgnoreCase("electrontail")){
-                        if(!ElectronTail.check(d.data[i].x,d.data[i].y ))
-                        throw new BadArgumentException("zle wsp");
-                        Objects.ElectronTail.make(k,d.data[i].x,d.data[i].y);
+                ElectronTail.perform(k,d.data[i].x,d.data[i].y);
             }else if(d.data[i].name.equalsIgnoreCase("diode")){
                         if(d.data[i].option.equalsIgnoreCase("normal")){
-                                if(!Diode_N.check(d.data[i].x,d.data[i].y))
-                                throw new BadArgumentException("zle wsp");
-                        Objects.Diode_N.make(k,d.data[i].x,d.data[i].y);
+                            Diode_N.perform(k,d.data[i].x,d.data[i].y);
                         } else if (d.data[i].option.equalsIgnoreCase("reversed")){
-                                if(!Diode_R.check(d.data[i].x,d.data[i].y))
-                                throw new BadArgumentException("zle wsp");
-                        Objects.Diode_R.make(k,d.data[i].x,d.data[i].y);
+                            Diode_R.perform(k,d.data[i].x,d.data[i].y);
                         }else{
                             throw new BadDiodeModifierException("zla dioda");
                         }
             }else if (d.data[i].name.equalsIgnoreCase("or")){
-                            if(!Or_Gate.check(d.data[i].x,d.data[i].y ))
-                            throw new BadArgumentException("zle wsp");
-                            Objects.Or_Gate.make(k,d.data[i].x,d.data[i].y);
+                Or_Gate.perform(k,d.data[i].x,d.data[i].y);
                     } else if(d.data[i].name.equalsIgnoreCase("copper")){
-                            if(!Copper.check(d.data[i].x,d.data[i].y ))
-                            throw new BadArgumentException("zle wsp");
-                            Objects.Copper.make(k,d.data[i].x,d.data[i].y);
+                Copper.perform(k,d.data[i].x,d.data[i].y);
             } else if(d.data[i].name.equalsIgnoreCase("xor")){
-                             if(!Xor_Gate.check(d.data[i].x,d.data[i].y ))
-                             throw new BadArgumentException("zle wsp");
-                             Objects.Xor_Gate.make(k,d.data[i].x,d.data[i].y);
+                Xor_Gate.perform(k,d.data[i].x,d.data[i].y);
             } else {
                             throw new BadElementException("zle dane");
             }

@@ -1,12 +1,14 @@
 package Objects;
 
+import Exceptions.BadArgumentException;
+
 public class Xor_Gate extends Body{
-    public static boolean check(int x,int y){
+    private static boolean check(int x,int y){
         if(x>=4&&x<=columns-1&&y>=2&&y<=rows-3) return true;
         else return false;
     }
 
-    public static void make(int[][]k,int x,int y){
+    private static void make(int[][]k,int x,int y){
        if(k[y][x]==0)
            k[y][x]=1;
         if(k[y-1][x-1]==0)
@@ -34,5 +36,11 @@ public class Xor_Gate extends Body{
         if(k[y+1][x-4]==0)
             k[y+1][x-4]=1;
 
+    }
+
+    public static void perform(int[][]k,int x,int y){
+        if(!check(x,y ))
+            throw new BadArgumentException("zle wsp");
+        make(k,x,y);
     }
 }
