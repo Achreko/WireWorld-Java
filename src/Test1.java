@@ -14,7 +14,7 @@ public class Test1 {
             Data data = new Data();
             data=Load.readData(k);
             int[][] w =new int[50][50];
-            w= Create_Board.check_and_load(data);
+            w = Create_Board.check_and_load(data);
             for(int i=0;i<data.getNumber_of_elements();i++) {
                 System.out.println(data.data[i]);
             }

@@ -1,25 +1,19 @@
 package Data;
 
+import Loader.*;
 
 public class Trans {
-    private int[][] array;
-
-    public Trans (int[][] array) {
-        this.array = array;
-
-        setTransformation(array);
-    }
-
 
     // sprawdza, czy blank
-    public boolean canTransform(int el){
+    public static boolean canTransform(int el){
         if (el == 0) {
             return false;
         }
         return true;
     }
 
-    public boolean happyLittleFriend(int x, int y){
+    // sprawdza, czy jest 1 lub 2 electron heady obok
+    public static boolean happyLittleFriend(int[][] array, int x, int y){
         int friends = 0;
         try {
             for (int i = x - 1; i < x + 2; i++)
@@ -35,22 +29,22 @@ public class Trans {
         return false;
     }
 
-    public void setTransformation(int[][] array){
+    public static int[][] setTransformation(int[][] array){
         for(int i = 0; i < 50; i++)
             for( int j =0; j < 50; j++) {
                 if(canTransform(array[i][j])){
                 if(array[i][j] == 2)
-                    this.array[i][j] = 3;
+                    array[i][j] = 3;
                 else if(array[i][j] == 3)
-                    this.array[i][j] = 1;
+                    array[i][j] = 1;
                 else if (array[i][j] == 1 ) {
-                    if (happyLittleFriend(i, j))
-                        this.array[i][j] = 2;
+                    if (happyLittleFriend(array,i, j))
+                        array[i][j] = 2;
                 }
             }
         }
+        return array;
     }
-
 
 
 }
