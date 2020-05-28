@@ -1,12 +1,18 @@
 package GUI;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.geom.*;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 
-public class SimPanel extends JPanel {
+public class SimPanel extends JPanel implements ActionListener {
     private int[][] p;
+    private int gen = 0;
+    private int genAmount = 50;
+
+    Timer loop = new Timer(120,this);
 
     public SimPanel(int[][] arr) {
         this.p = arr;
@@ -17,6 +23,10 @@ public class SimPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
+        Font font = new Font("Serif", Font.BOLD, 30);
+        g2d.setFont(font);
+        g2d.setColor(Color.black);
+        g2d.drawString("Numer generacji: " + gen,150, 40 );
 
         for(int i = 0; i < 500;i+=10)
             for (int j = 0; j < 500; j += 10) {
@@ -26,7 +36,15 @@ public class SimPanel extends JPanel {
                 g2d.setColor(Color.black);
                 g2d.draw(smolBoi);
             }
+        loop.start();
+    }
 
+    public void actionPerformed(ActionEvent e) {
+
+        if(gen < genAmount){
+            gen++;
+            repaint();
+        }
 
     }
 
