@@ -1,6 +1,6 @@
 package Data;
 
-import Loader.*;
+import Objects.*;
 
 public class Trans {
 

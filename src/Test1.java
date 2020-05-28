@@ -10,7 +10,7 @@ import java.io.IOException;
 public class Test1 {
     public static void main(String []args) {
 
-        String k = "/Users/kasia/desktop/plik.txt";
+        String k = "C:\\Users\\achre\\Desktop\\WireWorld-Java\\plik.txt";
         try {
             Data data = new Data();
             data=Load.readData(k);

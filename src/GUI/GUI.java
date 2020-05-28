@@ -1,14 +1,9 @@
 package GUI;
 
 import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.io.File;
 
-public class Main_GUI extends JFrame {
+
+public class GUI extends JFrame {
 
     protected JPanel panel;
     protected JTextField text;      // bierze liczbe generacji do wykonania
@@ -23,11 +18,11 @@ public class Main_GUI extends JFrame {
     protected String file=null;     // sciezka do pliku zapisana w formacie string
 
 
-     public Main_GUI(String name){
+     public GUI(String name){
         super(name);
 
         // panel
-        panel =new JPanel();
+        panel = new JPanel();
         panel.setBounds(40,80,200,200);
         panel.setLayout(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -68,6 +63,11 @@ public class Main_GUI extends JFrame {
         panel.add(label2);
 
     }
+    public static void main(String[] args) {
+        GUI show = new GUI("Suck me dry");
+        show.setSize(400, 400);
+        show.setVisible(true);
 
+    }
 
 }

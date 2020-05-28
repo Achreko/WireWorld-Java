@@ -1,8 +1,6 @@
 package Objects;
 
-import Exceptions.BadArgumentException;
-
- public abstract class Body {
+public abstract class Body {
      protected final static int columns=50;      //kolumny
      protected final static int rows=50;         //rzedy
 
