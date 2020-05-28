@@ -17,7 +17,7 @@ public class Copper extends Body {
 
     public static void perform(int[][]k,int x,int y){
         if(!check(x,y ))
-            throw new BadArgumentException("zle wsp");
+            throw new BadArgumentException();
             make(k,x,y);
     }
 }
