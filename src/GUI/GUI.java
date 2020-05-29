@@ -1,6 +1,9 @@
 package GUI;
 
 import javax.swing.*;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.PlainDocument;
 
 
 public class GUI extends JFrame {
@@ -34,6 +37,7 @@ public class GUI extends JFrame {
 
         text = new JTextField();
         text.setBounds(200, 50, 150, 30);
+        text.setDocument(new JTextFieldLimit(3));
 
         close=new JButton("Zakończ");
         close.setBounds(200, 100, 150, 30);
@@ -62,12 +66,33 @@ public class GUI extends JFrame {
         panel.add(choose);
         panel.add(label2);
 
+
     }
     public static void main(String[] args) {
         GUI show = new GUI("Suck me dry");
         show.setSize(400, 400);
         show.setVisible(true);
 
+    }
+
+    private class JTextFieldLimit extends PlainDocument {
+        private int limit;
+        private boolean toUppercase = false;
+
+        JTextFieldLimit(int limit) {
+            super();
+            this.limit = limit;
+        }
+
+        public void insertString
+                (int offset, String  str, AttributeSet attr) throws BadLocationException {
+
+            if (str == null) return;
+
+            if ((getLength() + str.length()) <= limit) {
+                super.insertString(offset, str, attr);
+            }
+        }
     }
 
 }
