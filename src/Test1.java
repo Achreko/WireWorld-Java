@@ -13,7 +13,7 @@ public class Test1 {
         String k = "/Users/kasia/desktop/plik.txt";
         try {
             Data data = new Data();
-            data=Load.readData(k);
+            data=Create_Board.readData(k);
             int[][] w =new int[50][50];
             w = Create_Board.check_and_load(data);
             for(int i=0;i<data.getNumber_of_elements();i++) {
