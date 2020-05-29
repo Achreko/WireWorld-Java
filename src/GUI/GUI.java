@@ -10,7 +10,7 @@ public class GUI extends JFrame {
     protected JButton close;        // konczy prace programu
     protected JButton accept;       // akcptuje liczbe generacji
     protected JLabel label;         // pytanie o liczbe generacji
-    protected int number;           // liczba generacji zapisana w postaci calkowitej
+    protected  int number;           // liczba generacji zapisana w postaci calkowitej
 
     protected JButton choose;       //wybor pliku do wczytania
     protected JFileChooser fc;      //okno wyboru pliku
@@ -61,12 +61,6 @@ public class GUI extends JFrame {
         panel.add(accept);
         panel.add(choose);
         panel.add(label2);
-
-    }
-    public static void main(String[] args) {
-        GUI show = new GUI("Suck me dry");
-        show.setSize(400, 400);
-        show.setVisible(true);
 
     }
 

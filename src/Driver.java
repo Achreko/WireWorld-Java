@@ -1,6 +1,6 @@
-import Data.Data;
-import GUI.*;
+import GUI.GUI;
 import Objects.Getter;
+import GUI.*;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
-import java.io.IOException;
 
 public class Driver extends GUI {
 
@@ -22,16 +21,19 @@ public class Driver extends GUI {
         close.addActionListener(new Listener());
         accept.addActionListener(new Listener());
         choose.addActionListener(new Listener());
+
+
     }
 
     protected String getFilePath(){
         return fc.getSelectedFile().getAbsolutePath();
     }
 
-    public int getNumber(){ return this.number;}
+    public int getNumber(){ return number;}
     public String getPath(){return file;}
 
     private class Listener implements ActionListener, KeyListener {
+
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -82,6 +84,7 @@ public class Driver extends GUI {
             }
         }
 
+
         @Override
         public void keyTyped (KeyEvent e ) {
 
@@ -108,10 +111,17 @@ public class Driver extends GUI {
 
 
     public static void main(String[] args) {
-        Driver m = new Driver("ooo");
+        Driver m = new Driver("WireWorld");
         m.setSize(400, 400);
         m.setVisible(true);
+        EventQueue.invokeLater(new Runnable() {
 
+            @Override
+            public void run() {
+                new SimFrame();
+
+            }
+        });
 
     }
 }

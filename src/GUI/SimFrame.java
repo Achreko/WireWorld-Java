@@ -3,14 +3,14 @@ package GUI;
 import javax.swing.*;
 
 public class SimFrame extends JFrame {
-    private int[][] p;
 
 
-    public SimFrame(int[][] arr) {
+
+    public SimFrame() {
         super("Symulacja");
 
-        this.p=arr;
-        JPanel panel = new SimPanel(p);
+
+        JPanel panel = new SimPanel();
 
         add(panel);
 
