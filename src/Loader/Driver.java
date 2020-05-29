@@ -1,10 +1,10 @@
-import GUI.GUI;
-import Objects.Getter;
+package Loader;
+
 import GUI.*;
+import Objects.Getter;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -21,19 +21,16 @@ public class Driver extends GUI {
         close.addActionListener(new Listener());
         accept.addActionListener(new Listener());
         choose.addActionListener(new Listener());
-
-
     }
 
     protected String getFilePath(){
         return fc.getSelectedFile().getAbsolutePath();
     }
 
-    public int getNumber(){ return number;}
+    public int getNumber(){ return this.number;}
     public String getPath(){return file;}
 
     private class Listener implements ActionListener, KeyListener {
-
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -62,6 +59,7 @@ public class Driver extends GUI {
                     //stworzy plansze na podstawie danych z pliku
                     int [][] t=new int[Objects.Getter.get_rows()][Objects.Getter.get_columns()];
                     t=Loader.Create_Board.perform(file);
+
                     /*poczatek do usuniecia*/
     /*to tylko pokazuje plansze */
                     for (int i = 0; i < Getter.get_rows(); i++) {
@@ -83,7 +81,6 @@ public class Driver extends GUI {
                 }
             }
         }
-
 
         @Override
         public void keyTyped (KeyEvent e ) {
@@ -111,17 +108,10 @@ public class Driver extends GUI {
 
 
     public static void main(String[] args) {
-        Driver m = new Driver("WireWorld");
+        Driver m = new Driver("ooo");
         m.setSize(400, 400);
         m.setVisible(true);
-        EventQueue.invokeLater(new Runnable() {
 
-            @Override
-            public void run() {
-                new SimFrame();
-
-            }
-        });
 
     }
 }
