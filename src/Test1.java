@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class Test1 {
     public static void main(String []args) {
-
+/*
         String k = "C:\\Users\\achre\\Desktop\\WireWorld-Java\\plik.txt";
         try {
             Data data = new Data();
@@ -38,7 +38,7 @@ public class Test1 {
             System.out.println(g.getMessage());
         }
 
-
+*/
     }
 
 }

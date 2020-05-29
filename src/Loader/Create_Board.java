@@ -3,6 +3,7 @@ import Data.*;
 import Exceptions.*;
 import Objects.*;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -11,7 +12,7 @@ import java.io.IOException;
 public class Create_Board  {
 
 
-    public static int[][] check_and_load(Data  d){
+    private static int[][] check_and_load(Data  d){
 
         int[][] k=new int[Getter.get_rows()][Getter.get_columns()];
         for(int h=0;h<Getter.get_rows();h++){
@@ -49,27 +50,40 @@ public class Create_Board  {
 
 
 
-    public static Data readData(String path) throws IOException {
+    private static Data readData(String path) throws IOException {
         Data d = new Data();
-        FileReader fr = new FileReader(path);
-        BufferedReader b = new BufferedReader(fr);
-        String line = null;
-        while ((line = b.readLine()) != null) {
-            String[] k = line.split("\\s+");
-            try {
-                if (k.length == 4) {
+            FileReader fr = new FileReader(path);
+            BufferedReader b = new BufferedReader(fr);
+            String line = null;
+            while ((line = b.readLine()) != null) {
+                String[] k = line.split("\\s+");
+                try {
+                    if (k.length == 4) {
 
-                    Element e = new Element(k[0], k[3], Integer.parseInt(k[1]), Integer.parseInt(k[2]));
-                    d.addElement(e);
+                        Element e = new Element(k[0], k[3], Integer.parseInt(k[1]), Integer.parseInt(k[2]));
+                        d.addElement(e);
 
-                } else if (k.length == 3) {
-                    Element e = new Element(k[0], Integer.parseInt(k[1]), Integer.parseInt(k[2]));
-                    d.addElement(e);
+                    } else if (k.length == 3) {
+                        Element e = new Element(k[0], Integer.parseInt(k[1]), Integer.parseInt(k[2]));
+                        d.addElement(e);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage());
                 }
-            } catch (NumberFormatException j) {
-                System.out.println("eee");
             }
-        }
+
         return d;
     }
+
+
+    public static int[][] perform(String path)  {
+        int[][]t=new int[Objects.Getter.get_rows()][Objects.Getter.get_columns()];
+        try{
+            t=check_and_load(readData(path));
+        }catch(IOException e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        return t;
+    }
+
 }
