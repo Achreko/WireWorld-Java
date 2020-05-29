@@ -1,6 +1,6 @@
 package Data;
 
-import Loader.*;
+import Objects.*;
 
 public class Trans {
 
@@ -29,7 +29,7 @@ public class Trans {
         return false;
     }
 
-    public static int[][] setTransformation(int[][] array){
+    public  int[][] setTransformation(int[][] array){
 
         int[][] array2=new int[Objects.Getter.get_rows()][Objects.Getter.get_columns()];
         copy(array,array2);
