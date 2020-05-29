@@ -1,16 +1,15 @@
-import Data.Data;
+package Loader;
+
 import GUI.*;
 import Objects.Getter;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
-import java.io.IOException;
 
 public class Driver extends GUI {
 
@@ -60,6 +59,7 @@ public class Driver extends GUI {
                     //stworzy plansze na podstawie danych z pliku
                     int [][] t=new int[Objects.Getter.get_rows()][Objects.Getter.get_columns()];
                     t=Loader.Create_Board.perform(file);
+
                     /*poczatek do usuniecia*/
     /*to tylko pokazuje plansze */
                     for (int i = 0; i < Getter.get_rows(); i++) {
