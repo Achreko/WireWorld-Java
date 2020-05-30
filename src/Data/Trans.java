@@ -12,12 +12,15 @@ public class Trans {
     public static boolean happyLittleFriend(int[][] array, int x, int y){
         int friends = 0;
         try {
-            for (int i = x - 1; i < x + 2; i++)
-                for (int j = y - 1; j < y + 2; j++)
-                    if (array[i][j] == 2)
-                        friends++;
-
-                        System.out.println(friends);
+            for (int i = x - 1; i < x + 2; i++) {
+                for (int j = y - 1; j < y + 2; j++) {
+                    if(i>=0&&i<Objects.Getter.get_rows()-1&&j>=0&&i<Objects.Getter.get_columns()-1) {
+                        if (array[i][j] == 2)
+                            friends++;
+                    }
+                }
+            }
+                       // System.out.println(friends);
         } catch(ArrayIndexOutOfBoundsException e) {
             //sad face :(
         }
