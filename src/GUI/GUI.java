@@ -13,12 +13,12 @@ public class GUI extends JFrame {
     protected JButton close;        // konczy prace programu
     protected JButton accept;       // akcptuje liczbe generacji
     protected JLabel label;         // pytanie o liczbe generacji
-    protected  int number;           // liczba generacji zapisana w postaci calkowitej
+    protected static int number;           // liczba generacji zapisana w postaci calkowitej
 
     protected JButton choose;       //wybor pliku do wczytania
     protected JFileChooser fc;      //okno wyboru pliku
     protected JLabel label2;        // polecenie wybrania pliku
-    protected String file=null;     // sciezka do pliku zapisana w formacie string
+    protected  String file;     // sciezka do pliku zapisana w formacie string
 
 
      public GUI(String name){
@@ -68,6 +68,16 @@ public class GUI extends JFrame {
 
 
     }
+
+    public void close() {
+            this.setVisible(false);
+            this.dispose();
+
+        }
+
+
+
+
 
     private class JTextFieldLimit extends PlainDocument {
         private int limit;

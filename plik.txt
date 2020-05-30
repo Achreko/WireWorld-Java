@@ -1,6 +1,10 @@
-electronhead 7 0
-EleCtrontail 1 1
+electronhead 7 1
+EleCtrontail 7 0
 diode 7 6 normal
 diode 13 6 reversed
-o 8 6
+copper 1 1
+electronhead 0 1
+copper 4 1
+copper 3 1
+copper 2 1
 

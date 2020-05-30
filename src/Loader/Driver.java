@@ -1,7 +1,7 @@
 package Loader;
 
-import GUI.*;
-import Objects.Getter;
+import GUI.GUI;
+import GUI.SimFrame;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -13,7 +13,6 @@ import java.io.File;
 
 public class Driver extends GUI {
 
-
     public Driver(String name) {
         super(name);
 
@@ -21,14 +20,15 @@ public class Driver extends GUI {
         close.addActionListener(new Listener());
         accept.addActionListener(new Listener());
         choose.addActionListener(new Listener());
+
     }
 
     protected String getFilePath(){
         return fc.getSelectedFile().getAbsolutePath();
     }
 
-    public int getNumber(){ return this.number;}
-    public String getPath(){return file;}
+    public static int getNumber(){ return number;}
+    public  String getPath(){return file;}
 
     private class Listener implements ActionListener, KeyListener {
 
@@ -39,7 +39,6 @@ public class Driver extends GUI {
                 System.exit(0);
             } else if (e.getSource().equals(accept)) {
                 number = (Integer.parseInt(text.getText()));
-                System.out.println(number);
                 accept.setVisible(false);
                 text.setVisible(false);
                 label.setVisible(false);
@@ -48,7 +47,6 @@ public class Driver extends GUI {
             } else if (e.getSource().equals(choose)) {
                 JButton b = new JButton();
                 fc = new JFileChooser();
-
                 fc.setCurrentDirectory(new File("."));
                 FileNameExtensionFilter filter = new FileNameExtensionFilter("TEXT FILES", "txt", "text");
                 fc.setFileFilter(filter);
@@ -56,31 +54,15 @@ public class Driver extends GUI {
                 if (fc.showOpenDialog(b) == JFileChooser.APPROVE_OPTION) {
                     file = getFilePath();
 
-                    //stworzy plansze na podstawie danych z pliku
-                    int [][] t=new int[Objects.Getter.get_rows()][Objects.Getter.get_columns()];
-                    t=Loader.Create_Board.perform(file);
 
-                    /*poczatek do usuniecia*/
-    /*to tylko pokazuje plansze */
-                    for (int i = 0; i < Getter.get_rows(); i++) {
-                        for (int j=0;j<Getter.get_columns();j++){
-                            System.out.print(t[i][j]);
-                        }
-                        System.out.print('\n');
-                    }
-                    /*koniec do usuniecia*/
-
-
-
-
-                    choose.setVisible(false);
-                    label2.setVisible(false);
-                    close.setVisible(false);
-
+                    close();
+                    SimFrame simFrame = new SimFrame(file);
 
                 }
             }
         }
+
+
 
         @Override
         public void keyTyped (KeyEvent e ) {
@@ -105,15 +87,6 @@ public class Driver extends GUI {
     }
 
 
-
-
-    public static void main(String[] args) {
-        Driver m = new Driver("ooo");
-        m.setSize(400, 400);
-        m.setVisible(true);
-
-
-    }
 }
 
 
