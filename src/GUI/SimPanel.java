@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.*;
 
+
+
 import javax.swing.*;
 
 public class SimPanel extends JPanel implements ActionListener {
@@ -27,7 +29,7 @@ public class SimPanel extends JPanel implements ActionListener {
     }
 
 
-    @Override
+        @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
@@ -75,4 +77,6 @@ public class SimPanel extends JPanel implements ActionListener {
 
 
     }
+
+   
 }
