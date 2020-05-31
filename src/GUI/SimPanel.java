@@ -50,14 +50,15 @@ public class SimPanel extends JPanel implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-
-        if(gen < genAmount){
+        if (gen < genAmount) {
             gen++;
             Trans.setTransformation(p);
+
             repaint();
         }
-
     }
+
+
 
     private void chooseColor(int el, Graphics g) {
         switch (el) {
