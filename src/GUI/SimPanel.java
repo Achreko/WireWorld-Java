@@ -39,13 +39,14 @@ public class SimPanel extends JPanel implements ActionListener {
         g2d.drawString("Numer generacji: " + gen,10, 40 );
 
         for(int i = 0; i < Objects.Getter.get_rows();i++)
-            for (int j = 0; j < Objects.Getter.get_columns(); j ++) {
-                Rectangle2D smolBoi = new Rectangle2D.Double(1 + 10*j, 50 + 10*i, 10, 10);
+            for (int j = 0; j < Objects.Getter.get_columns(); j++) {
+                Rectangle2D smolBoi = new Rectangle2D.Double(1 + 10 * j, 50 + 10 * i, 10, 10);
                 chooseColor(p[i][j], g);
                 g2d.fill(smolBoi);
                 g2d.setColor(Color.black);
                 g2d.draw(smolBoi);
             }
+
         loop.start();
     }
     @Override
@@ -53,7 +54,6 @@ public class SimPanel extends JPanel implements ActionListener {
         if (gen < genAmount) {
             gen++;
             Trans.setTransformation(p);
-
             repaint();
         }
     }

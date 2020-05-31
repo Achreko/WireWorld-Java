@@ -44,6 +44,7 @@ public class Create_Board  {
                             throw new BadElementException("zle dane");
             }
         }
+
         return k;
     }
 
@@ -72,6 +73,7 @@ public class Create_Board  {
                 }
             }
 
+
         return d;
     }
 
@@ -80,9 +82,12 @@ public class Create_Board  {
         int[][]t=new int[Objects.Getter.get_rows()][Objects.Getter.get_columns()];
         try{
             t=check_and_load(readData(path));
+
+
         }catch(IOException e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
+
         return t;
     }
 
