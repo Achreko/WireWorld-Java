@@ -1,7 +1,7 @@
 package Data;
 
 
-public class Trans {
+public abstract class Trans {
 
     // sprawdza, czy blank
     public static boolean canTransform(int el){
@@ -30,7 +30,6 @@ public class Trans {
         copy(array,temp);
         for(int i = 0; i < Objects.Getter.get_rows(); i++) {
             for (int j = 0; j < Objects.Getter.get_columns(); j++) {
-               // System.out.println("row:"+i+" column:"+j+" "+canTransform(temp[i][j]));// delete later
                 if (canTransform(temp[i][j])) {
                     if (temp[i][j] == 2)
                         array[i][j] = 3;

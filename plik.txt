@@ -1,4 +1,3 @@
-electronhead 7 1
 eleCtrontail 7 0
 diode 7 6 normal
 diode 13 6 reversed

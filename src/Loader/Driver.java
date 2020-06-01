@@ -85,12 +85,12 @@ public class Driver extends GUI {
         public void keyReleased(KeyEvent e) {}
 
     }
-
+/*
     public static void main(String[] args){
         Driver d=new Driver("test");
         d.setSize(400,400);
         d.setVisible(true);
-    }
+    }*/
 
 }
 
