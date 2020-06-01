@@ -14,8 +14,8 @@ import java.awt.geom.*;
 import javax.swing.*;
 
 public class SimPanel extends JPanel implements ActionListener {
-    private int[][] p;
-    private int gen = 0;
+    private static int[][] p;
+    private static int gen = 0;
     private int genAmount = Driver.getNumber();
 
 
@@ -24,7 +24,7 @@ public class SimPanel extends JPanel implements ActionListener {
 
 
     public SimPanel(String f) {
-        this.p = Create_Board.perform(f);
+        p = Create_Board.perform(f);
         setPreferredSize(new Dimension(503, 552));
     }
 
@@ -56,6 +56,14 @@ public class SimPanel extends JPanel implements ActionListener {
             Trans.setTransformation(p);
             repaint();
         }
+    }
+
+    public static int getGenNumber() {
+        return gen;
+    }
+
+    public static int[][] passArray() {
+        return p;
     }
 
 

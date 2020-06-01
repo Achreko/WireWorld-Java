@@ -75,10 +75,6 @@ public class GUI extends JFrame {
 
         }
 
-
-
-
-
     private class JTextFieldLimit extends PlainDocument {
         private int limit;
         private boolean toUppercase = false;
