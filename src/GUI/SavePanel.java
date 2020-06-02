@@ -18,7 +18,7 @@ public class SavePanel extends JPanel  {
     private int savedGenNumber = 0;
     private String mightyFile;
     private int[][] mightyArray;
-    private String advElems = Create_Board.getAdvElems();
+
 
 
     //Ojj tak tak Byczq +1
