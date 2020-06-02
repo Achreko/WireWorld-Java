@@ -1,0 +1,77 @@
+Index: src/GUI/SimPanel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package GUI;\r\n\r\nimport Data.Trans;\r\nimport Loader.Driver;\r\nimport Loader.Create_Board;\r\n\r\nimport java.awt.*;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\nimport java.awt.geom.*;\r\n\r\nimport javax.swing.*;\r\n\r\npublic class SimPanel extends JPanel implements ActionListener {\r\n    private int[][] p;\r\n    private int gen = 0;\r\n    private int genAmount = Driver.getNumber();\r\n\r\n\r\n\r\n    Timer loop = new Timer(1500,this);\r\n\r\n\r\n    public SimPanel(String f) {\r\n        this.p = Create_Board.perform(f);\r\n        setPreferredSize(new Dimension(503, 552));\r\n    }\r\n\r\n\r\n    @Override\r\n    protected void paintComponent(Graphics g) {\r\n        super.paintComponent(g);\r\n        Graphics2D g2d = (Graphics2D) g;\r\n        Font font = new Font(\"Serif\", Font.BOLD, 30);\r\n        g2d.setFont(font);\r\n        g2d.setColor(Color.black);\r\n        g2d.drawString(\"Numer generacji: \" + gen,10, 40 );\r\n\r\n        for(int i = 0; i < Objects.Getter.get_rows();i++)\r\n            for (int j = 0; j < Objects.Getter.get_columns(); j ++) {\r\n                Rectangle2D smolBoi = new Rectangle2D.Double(1 + 10*j, 50 + 10*i, 10, 10);\r\n                chooseColor(p[i][j], g);\r\n                g2d.fill(smolBoi);\r\n                g2d.setColor(Color.black);\r\n                g2d.draw(smolBoi);\r\n            }\r\n        loop.start();\r\n    }\r\n    @Override\r\n    public void actionPerformed(ActionEvent e) {\r\n\r\n        if(gen < genAmount){\r\n            gen++;\r\n            Trans.setTransformation(p);\r\n            repaint();\r\n        }\r\n\r\n    }\r\n\r\n    private void chooseColor(int el, Graphics g) {\r\n        switch (el) {\r\n            case 0:\r\n                g.setColor(Color.black);\r\n                break;\r\n            case 1:\r\n                g.setColor(Color.yellow);\r\n                break;\r\n            case 2:\r\n                g.setColor(Color.blue);\r\n                break;\r\n            case 3:\r\n                g.setColor(Color.red);\r\n                break;\r\n        }\r\n\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/GUI/SimPanel.java	(revision 86d001e644e0ed9bbc96cb27b5610c26788272b4)
++++ src/GUI/SimPanel.java	(date 1590849824331)
+@@ -51,7 +51,7 @@
+ 
+         if(gen < genAmount){
+             gen++;
+-            Trans.setTransformation(p);
++            this.p =Trans.setTransformation(p);
+             repaint();
+         }
+ 
+Index: src/Data/Trans.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Data;\r\n\r\n\r\npublic class Trans {\r\n\r\n    // sprawdza, czy blank\r\n    public static boolean canTransform(int el){\r\n        return el != 0;\r\n    }\r\n\r\n    // sprawdza, czy jest 1 lub 2 electron heady obok\r\n    public static boolean happyLittleFriend(int[][] array, int x, int y){\r\n        int friends = 0;\r\n\r\n            for (int i = x - 1; i < x + 2; i++) {\r\n                for (int j = y - 1; j < y + 2; j++) {\r\n                    if(i>=0&&i<Objects.Getter.get_rows()-1&&j>=0&&i<Objects.Getter.get_columns()-1) {\r\n                        if (array[i][j] == 2)\r\n                            friends++;\r\n                    }\r\n                }\r\n            }\r\n\r\n\r\n        return friends == 1 || friends == 2;\r\n    }\r\n\r\n    public  static int[][] setTransformation(int[][] array){\r\n        int friends;\r\n       /* int[][] array2=new int[Objects.Getter.get_rows()][Objects.Getter.get_columns()];\r\n        copy(array,array2);*/\r\n        for(int i = 0; i < Objects.Getter.get_rows(); i++)\r\n            for( int j =0; j < Objects.Getter.get_columns(); j++) {\r\n                if(canTransform(array[i][j])){\r\n                if(array[i][j] == 2)\r\n                    array[i][j] = 3;\r\n                else if(array[i][j] == 3)\r\n                    array[i][j] = 1;\r\n                else if (array[i][j] == 1 ) {\r\n                    if (happyLittleFriend(array,i, j))\r\n                        array[i][j] = 2;\r\n                }\r\n            }\r\n        }\r\n        return array;\r\n    }\r\n\r\n    /*private static void copy(int[][] t,int[][]t2) {\r\n        try {\r\n            for (int i = 0; i < Objects.Getter.get_rows(); i++)\r\n                for (int j = 0; i < Objects.Getter.get_columns(); j++)\r\n                    t2[i][j] = t[i][j];\r\n        } catch(ArrayIndexOutOfBoundsException e){\r\n            System.out.print(\"Czego ty chcesz ode mnie\");\r\n        }\r\n    }*/\r\n\r\n    }\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Data/Trans.java	(revision 86d001e644e0ed9bbc96cb27b5610c26788272b4)
++++ src/Data/Trans.java	(date 1590878718187)
+@@ -11,7 +11,6 @@
+     // sprawdza, czy jest 1 lub 2 electron heady obok
+     public static boolean happyLittleFriend(int[][] array, int x, int y){
+         int friends = 0;
+-
+             for (int i = x - 1; i < x + 2; i++) {
+                 for (int j = y - 1; j < y + 2; j++) {
+                     if(i>=0&&i<Objects.Getter.get_rows()-1&&j>=0&&i<Objects.Getter.get_columns()-1) {
+@@ -26,17 +25,16 @@
+     }
+ 
+     public  static int[][] setTransformation(int[][] array){
+-        int friends;
+-       /* int[][] array2=new int[Objects.Getter.get_rows()][Objects.Getter.get_columns()];
+-        copy(array,array2);*/
++       int[][] temp = new int[Objects.Getter.get_rows()][Objects.Getter.get_columns()];
++        copy(array,temp);
+         for(int i = 0; i < Objects.Getter.get_rows(); i++)
+             for( int j =0; j < Objects.Getter.get_columns(); j++) {
+                 if(canTransform(array[i][j])){
+-                if(array[i][j] == 2)
++                if(temp[i][j] == 2)
+                     array[i][j] = 3;
+-                else if(array[i][j] == 3)
++                else if(temp[i][j] == 3)
+                     array[i][j] = 1;
+-                else if (array[i][j] == 1 ) {
++                else if (temp[i][j] == 1 ) {
+                     if (happyLittleFriend(array,i, j))
+                         array[i][j] = 2;
+                 }
+@@ -45,15 +43,15 @@
+         return array;
+     }
+ 
+-    /*private static void copy(int[][] t,int[][]t2) {
++    private static void copy(int[][] t,int[][]t2) {
+         try {
+             for (int i = 0; i < Objects.Getter.get_rows(); i++)
+                 for (int j = 0; i < Objects.Getter.get_columns(); j++)
+                     t2[i][j] = t[i][j];
+         } catch(ArrayIndexOutOfBoundsException e){
+-            System.out.print("Czego ty chcesz ode mnie");
++            e.getStackTrace();
+         }
+-    }*/
++    }
+ 
+     }
+ 

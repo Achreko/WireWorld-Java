@@ -21,15 +21,5 @@ public class Element {
     }
 
 
-    @Override
-    public String toString() {
-        if(option!=null) {
-            StringBuilder b = new StringBuilder(name + " " + x + " " + y + " " + option);
-            return b.toString();
-        }else{
-            StringBuilder b = new StringBuilder(name + " " + x + " " + y );
-            return b.toString();
-        }
 
-    }
 }

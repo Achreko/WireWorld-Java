@@ -1,0 +1,81 @@
+Index: src/GUI/Main_GUI.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package GUI;\n\nimport javax.swing.*;\nimport javax.swing.filechooser.FileNameExtensionFilter;\nimport java.awt.*;\nimport java.awt.event.ActionEvent;\nimport java.awt.event.ActionListener;\nimport java.awt.event.KeyEvent;\nimport java.awt.event.KeyListener;\nimport java.io.File;\n\npublic class Main_GUI extends JFrame {\n\n    protected JPanel panel;\n    protected JTextField text;      // bierze liczbe generacji do wykonania\n    protected JButton close;        // konczy prace programu\n    protected JButton accept;       // akcptuje liczbe generacji\n    protected JLabel label;         // pytanie o liczbe generacji\n    protected int number;           // liczba generacji zapisana w postaci calkowitej\n\n    protected JButton choose;       //wybor pliku do wczytania\n    protected JFileChooser fc;      //okno wyboru pliku\n    protected JLabel label2;        // polecenie wybrania pliku\n    protected String file=null;     // sciezka do pliku zapisana w formacie string\n\n\n    Main_GUI(String name){\n        super(name);\n\n        // panel\n        panel =new JPanel();\n        panel.setBounds(40,80,200,200);\n        panel.setLayout(null);\n        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\n        this.setContentPane(panel);\n        this.pack();\n        panel.setVisible(true);\n\n        // poszczegolne elementy\n\n        text = new JTextField();\n        text.setBounds(200, 50, 150, 30);\n\n        close=new JButton(\"Zakończ\");\n        close.setBounds(200, 100, 150, 30);\n\n        accept=new JButton(\"Zatwierdź\");\n        accept.setBounds(50, 100, 150, 30);\n        accept.setEnabled(false);\n\n        label=new JLabel(\"Podaj liczbę generacji\");\n        label.setBounds(50, 50, 150, 30);\n\n        choose = new JButton(\"Wybierz\");\n        choose.setBounds(50, 100, 150, 30);\n        choose.setVisible(false);\n\n        label2 = new JLabel(\"Wybierz plik z danymi\");\n        label2.setBounds(50, 50, 150, 30);\n        label2.setVisible(false);\n\n     // dodanie action listenerow\n        text.addKeyListener(new Listener());\n        close.addActionListener(new Listener());\n        accept.addActionListener(new Listener());\n        choose.addActionListener(new Listener());\n\n\n        // dodawanie lementow do panelu\n\n        panel.add(text);\n        panel.add(label);\n        panel.add(close);\n        panel.add(accept);\n        panel.add(choose);\n        panel.add(label2);\n\n    }\n\n    private class Listener implements ActionListener, KeyListener {\n\n        @Override\n        public void actionPerformed(ActionEvent e) {\n\n            if (e.getSource().equals(close)) {\n                System.exit(0);\n            } else if (e.getSource().equals(accept)) {\n                number = (Integer.parseInt(text.getText()));\n                accept.setVisible(false);\n                text.setVisible(false);\n                label.setVisible(false);\n                choose.setVisible(true);\n                label2.setVisible(true);\n            } else if (e.getSource().equals(choose)) {\n                JButton b = new JButton();\n                fc = new JFileChooser();\n\n                fc.setCurrentDirectory(new File(\".\"));\n                FileNameExtensionFilter filter = new FileNameExtensionFilter(\"TEXT FILES\", \"txt\", \"text\");\n                fc.setFileFilter(filter);\n\n                if (fc.showOpenDialog(b) == JFileChooser.APPROVE_OPTION) {\n                    file = getFilePath();\n                    choose.setVisible(false);\n                    label2.setVisible(false);\n                }\n            }\n        }\n\n        @Override\n        public void keyTyped (KeyEvent e ) {\n            if (!Character.isDigit(e.getKeyChar())||e.getKeyChar()=='0')\n                e.consume();\n            if (Character.isDigit(e.getKeyChar())&&e.getKeyChar()!='0')\n                accept.setEnabled(true);\n        }\n\n        @Override\n        public void keyPressed(KeyEvent e) {}\n\n        @Override\n        public void keyReleased(KeyEvent e) {}\n\n    }\n\n    private String getFilePath(){\n            return fc.getSelectedFile().getAbsolutePath();\n        }\n\n     public int getNumber(){ return this.number;}\n     public String getPath(){return file;}\n\n\n    public static void main(String[] args) {\n        Main_GUI m = new Main_GUI(\"ooo\");\n        m.setSize(400, 400);\n        m.setVisible(true);\n\n\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/GUI/Main_GUI.java	(revision 133e00d3752874cf6adfdbbe02a184c6aa0926ef)
++++ src/GUI/Main_GUI.java	(date 1590500994332)
+@@ -2,7 +2,6 @@
+ 
+ import javax.swing.*;
+ import javax.swing.filechooser.FileNameExtensionFilter;
+-import java.awt.*;
+ import java.awt.event.ActionEvent;
+ import java.awt.event.ActionListener;
+ import java.awt.event.KeyEvent;
+@@ -66,7 +65,7 @@
+         choose.addActionListener(new Listener());
+ 
+ 
+-        // dodawanie lementow do panelu
++        // dodawanie elementow do panelu
+ 
+         panel.add(text);
+         panel.add(label);
+@@ -109,9 +108,9 @@
+ 
+         @Override
+         public void keyTyped (KeyEvent e ) {
+-            if (!Character.isDigit(e.getKeyChar())||e.getKeyChar()=='0')
++            if (!Character.isDigit(e.getKeyChar()))
+                 e.consume();
+-            if (Character.isDigit(e.getKeyChar())&&e.getKeyChar()!='0')
++            if (Character.isDigit(e.getKeyChar()))
+                 accept.setEnabled(true);
+         }
+ 
+Index: src/GUI.java
+===================================================================
+--- src/GUI.java	(revision 133e00d3752874cf6adfdbbe02a184c6aa0926ef)
++++ src/GUI.java	(revision 133e00d3752874cf6adfdbbe02a184c6aa0926ef)
+@@ -1,27 +0,0 @@
+-import javax.swing.*;
+-import java.awt.*;
+-
+-public class GUI {
+-
+-    public GUI() {
+-        JFrame frame = new JFrame();
+-
+-        JButton button = new JButton("button");
+-        JLabel label = new JLabel("number of clicks: 0");
+-
+-
+-        JPanel panel = new JPanel();
+-        panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
+-        panel.setLayout(new GridLayout(0,1));
+-        panel.add(button);
+-        panel.add(button);
+-
+-        frame.add(panel,BorderLayout.CENTER);
+-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+-        frame.setVisible(true);
+-        frame.setTitle("Wire World");
+-        frame.pack();
+-    }
+-
+-
+-}
+Index: src/Loader.java
+===================================================================
+--- src/Loader.java	(revision 133e00d3752874cf6adfdbbe02a184c6aa0926ef)
++++ src/Loader.java	(revision 133e00d3752874cf6adfdbbe02a184c6aa0926ef)
+@@ -1,6 +0,0 @@
+-import javax.swing.*;
+-import java.awt.*;
+-
+-public class Loader {
+-
+-}
