@@ -10,9 +10,7 @@ import java.io.IOException;
 
 
 public class Create_Board  {
-    private static String advElems;
-    private   static Data useful = new Data();
-    private  static Data d = new Data();
+
 
     private static int[][] check_and_load(Data  d){
 
@@ -47,9 +45,6 @@ public class Create_Board  {
             }
         }
 
-
-
-
         return k;
     }
 
@@ -57,7 +52,7 @@ public class Create_Board  {
 
 
     private static Data readData(String path) throws IOException {
-
+            Data d = new Data();
             FileReader fr = new FileReader(path);
             BufferedReader b = new BufferedReader(fr);
             String line;
@@ -68,13 +63,12 @@ public class Create_Board  {
 
                         Element e = new Element(k[0], k[3], Integer.parseInt(k[1]), Integer.parseInt(k[2]));
                         d.addElement(e);
-                        useful.addElement(e);
+
                     } else if (k.length == 3) {
                         Element e = new Element(k[0], Integer.parseInt(k[1]), Integer.parseInt(k[2]));
                         d.addElement(e);
-
                     }
-                    //advElems = useful.toString();
+
                 } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog(null, e.getMessage());
                 }
@@ -84,7 +78,7 @@ public class Create_Board  {
         return d;
     }
 
-    public  int[][] perform(String path)  {
+    public static int[][] perform(String path)  {
         int[][]t=new int[Objects.Getter.get_rows()][Objects.Getter.get_columns()];
         try{
             t=check_and_load(readData(path));
@@ -97,9 +91,6 @@ public class Create_Board  {
         return t;
     }
 
-    public static String getAdvElems() {
-        return advElems;
-    }
-    public  static Data getData(){return d;}
+
 
 }

@@ -43,48 +43,4 @@ public class Xor_Gate extends Body{
             throw new BadArgumentException();
         make(k,x,y);
     }
-
-
-    public static boolean isOrGate_check(int[][] k, int x, int y) {
-        if (check(x, y)) {
-            if ( k[y][x]==1&&k[y-1][x]==1&&k[y][x-1]==1&&k[y+1][x]==1&&k[y][x+1]==1) {
-                return true;
-            }
-
-        }
-        return false;
-    }
-
-    public static void isOrGate(int[][] k, int x, int y) {
-        if(k[y][x]==1)
-            k[y][x]=0;
-        if(k[y-1][x-1]==1)
-            k[y-1][x-1]=0;
-        if(k[y][x-1]==1)
-            k[y][x-1]=0;
-        if(k[y+1][x-1]==1)
-            k[y+1][x-1]=0;
-        if(k[y-1][x-2]==1)
-            k[y-1][x-2]=0;
-        if(k[y+1][x-2]==1)
-            k[y+1][x-2]=0;
-        if(k[y-1][x-3]==1)
-            k[y-1][x-3]=0;
-        if(k[y+1][x-3]==1)
-            k[y+1][x-3]=0;
-        if(k[y-2][x-3]==1)
-            k[y-2][x-3]=0;
-        if(k[y+2][x-3]==1)
-            k[y+2][x-3]=0;
-        if(k[y-1][x-4]==1)
-            k[y-1][x-4]=0;
-        if(k[y][x-4]==1)
-            k[y][x-4]=0;
-        if(k[y+1][x-4]==1)
-            k[y+1][x-4]=0;
-
-
-
-
-    }
 }

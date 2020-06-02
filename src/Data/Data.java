@@ -3,7 +3,7 @@ package Data;
 //lista elementow do generacji
 public class Data {
     public Element[] data =new Element[10];
-    private  int number_of_elements=0;
+    private int number_of_elements=0;
 
     public int getNumber_of_elements() {
         return number_of_elements;

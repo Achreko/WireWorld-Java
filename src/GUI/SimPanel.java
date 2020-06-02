@@ -1,6 +1,5 @@
 package GUI;
 
-import Data.Data;
 import Data.Trans;
 import Loader.Driver;
 import Loader.Create_Board;
@@ -9,7 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.*;
-import java.io.PrintWriter;
+
 
 
 import javax.swing.*;
@@ -21,18 +20,13 @@ public class SimPanel extends JPanel implements ActionListener {
 
 
 
-
     Timer loop = new Timer(1500,this);
 
 
     public SimPanel(String f) {
-         Create_Board board=new Create_Board();
-        p = board.perform(f);
-
+        p = Create_Board.perform(f);
         setPreferredSize(new Dimension(503, 552));
     }
-
-
 
     public  void setGen(){
         this.gen=0;
@@ -98,7 +92,6 @@ public class SimPanel extends JPanel implements ActionListener {
 
 
     }
-
 
    
 }

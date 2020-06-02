@@ -31,32 +31,4 @@ public class Diode_R extends Body {
             throw new BadArgumentException();
         make(k,x,y);
     }
-
-    public static void isDiode_R(int[][]k,int x,int y){
-        if(k[y][x]==1)
-            k[y][x]=0;
-        if(k[y-1][x-1]==1)
-            k[y-1][x-1]=0;
-        if( k[y][x-1]==1)
-            k[y][x-1]=0;
-        if(k[y+1][x-1]==1)
-            k[y+1][x-1]=0;
-        if(k[y+1][x-2]==1)
-            k[y+1][x-2]=0;
-        if( k[y-1][x-2]==1)
-            k[y-1][x-2]=0;
-        if(k[y][x-3]==1)
-            k[y][x-3]=0;
-
-    }
-
-    public static boolean isDiode_R_check(int[][] k, int x, int y) {
-        if (check(x, y)) {
-            if (k[y][x] == 1 && k[y-1][x-1] == 1 &&  k[y][x-1] == 1 &&  k[y+1][x-1] == 1 && k[y+1][x-2] == 1 &&   k[y-1][x-2] == 1 &&  k[y][x-3] == 1)  {
-                return true;
-            }
-
-        }
-        return false;
-    }
 }
