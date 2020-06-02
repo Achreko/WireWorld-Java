@@ -2,6 +2,7 @@ package GUI;
 
 import Data.*;
 import Loader.Create_Board;
+import Loader.Driver;
 
 
 import javax.swing.*;
@@ -23,6 +24,7 @@ public class SavePanel extends JPanel  {
     //Ojj tak tak Byczq +1
     public SavePanel(){
         save = new JButton("Zapisz");
+
 
 
         save.setAlignmentX(CENTER_ALIGNMENT);

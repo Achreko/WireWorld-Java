@@ -57,6 +57,7 @@ public class Driver extends GUI {
 
                     close();
                     SimFrame simFrame = new SimFrame(file);
+                    simFrame.setLocationRelativeTo(null);
 
                 }
             }

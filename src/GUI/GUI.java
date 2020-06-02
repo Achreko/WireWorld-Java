@@ -33,6 +33,7 @@ public class GUI extends JFrame {
         this.pack();
         panel.setVisible(true);
 
+
         // poszczegolne elementy
 
         text = new JTextField();
