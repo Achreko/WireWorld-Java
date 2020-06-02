@@ -28,7 +28,10 @@ public class SimPanel extends JPanel implements ActionListener {
         setPreferredSize(new Dimension(503, 552));
     }
 
-
+    public  void setGen(){
+        this.gen=0;
+        this.genAmount=0;
+    }
         @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -46,6 +49,8 @@ public class SimPanel extends JPanel implements ActionListener {
                 g2d.setColor(Color.black);
                 g2d.draw(smolBoi);
             }
+
+
 
         loop.start();
     }
@@ -65,6 +70,7 @@ public class SimPanel extends JPanel implements ActionListener {
     public static int[][] passArray() {
         return p;
     }
+
 
 
 

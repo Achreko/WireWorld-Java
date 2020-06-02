@@ -17,7 +17,7 @@ public class SimFrame extends JFrame  {
 
         splitPane= new JSplitPane();
 
-        JPanel simPanel = new SimPanel(f);
+        SimPanel simPanel = new SimPanel(f);
         JPanel savePanel = new SavePanel();
         JButton again=new JButton("Początek");
 
@@ -31,7 +31,8 @@ public class SimFrame extends JFrame  {
         again.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("eee");
+
+                simPanel.setGen();
                 Driver m = new Driver("WireWorld setup");
                 m.setSize(400, 400);
                 m.setVisible(true);
