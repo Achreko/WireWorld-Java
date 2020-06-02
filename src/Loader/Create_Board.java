@@ -56,7 +56,7 @@ public class Create_Board  {
             Data d = new Data();
             FileReader fr = new FileReader(path);
             BufferedReader b = new BufferedReader(fr);
-            String line = null;
+            String line;
             while ((line = b.readLine()) != null) {
                 String[] k = line.split("\\s+");
                 try {
