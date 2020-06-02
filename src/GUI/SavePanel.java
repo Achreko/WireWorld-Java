@@ -22,7 +22,7 @@ public class SavePanel extends JPanel {
     private int savedGenNumber = 0;
     private String mightyFile;
     private int[][] mightyArray;
-    private String advElems = Create_Board.getAdvElems();
+
 
 
     //Ojj tak tak Byczq +1
@@ -102,6 +102,7 @@ public class SavePanel extends JPanel {
     public static void damn(int[][] t, PrintWriter p) {
 
         Data d = Create_Board.getData();
+
         for (int i = 0; i < d.getNumber_of_elements(); i++) {
             if (d.data[i].name.equalsIgnoreCase("or")) {
                 Objects.Or_Gate.isOrGate(t, d.data[i].x, d.data[i].y);
