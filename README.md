@@ -1,2 +1,2 @@
 # WireWorld-Java
-Hello there
+W folderze automat_komorkow znajduje sie plik jar i wszystkie pliki niezbedne do jego stworzenia
