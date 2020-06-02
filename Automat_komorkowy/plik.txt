@@ -1,0 +1,13 @@
+eleCtrontail 7 0
+diODE 7 6 normal
+diode 13 6 reversed
+copper 1 2
+electrontail 0 2
+electronhead 1 2
+copper 4 2
+copper 3 2
+copper 2 2
+copper 49 49
+xor 30 30 
+
+
